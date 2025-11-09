@@ -1,0 +1,30 @@
+# docker-compose.yml
+
+version: '3.8'
+
+services:
+  # Servicio de la aplicación Node.js/Express
+  api:
+    build: . # Busca el Dockerfile en el directorio actual
+    ports:
+      - "3000:3000" # Mapea el puerto 3000 del host al 3000 del contenedor
+    volumes:
+      - .:/usr/src/app # Monta el directorio local para desarrollo (hot-reloading)
+      - /usr/src/app/node_modules # Excluye la carpeta node_modules local
+    environment:
+      # Variable de entorno para que Node sepa dónde encontrar la base de datos
+      NODE_ENV: development
+      MONGO_URI: mongodb://mongo:27017/ecommerce_db # Usa 'mongo' como hostname (nombre del servicio)
+    depends_on:
+      - mongo # Asegura que el servicio 'mongo' se inicie primero
+
+  # Servicio de la base de datos MongoDB
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017" # Opcional: para acceder a la BD desde un cliente externo (ej. MongoDB Compass)
+    volumes:
+      - mongo-data:/data/db # Persistencia de datos para que no se pierdan al detener el contenedor
+
+volumes:
+  mongo-data: # Define el volumen de persistencia

@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const productController = require('../controllers/productController');
+const { protect, restrictTo } = require('../middlewares/authMiddleware');
+router.get('/', productController.getAllProducts);
+router.get('/filter', productController.filterProducts);
+router.get('/:id', productController.getProductById);
+router.post('/', productController.createProduct);
+router.patch('/:id/stock',productController.updateStock);
+router.use(protect,restrictTo('admin'));
+module.exports = router;
