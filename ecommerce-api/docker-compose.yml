@@ -1,6 +1,5 @@
 # docker-compose.yml
 
-version: '3.8'
 
 services:
   # Servicio de la aplicación Node.js/Express
