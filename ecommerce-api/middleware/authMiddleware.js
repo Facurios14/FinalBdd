@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const AppError = require('../utils/appError');
 const {promisify} = require('util');
-const e = require('express');
+const express = require('express');
 const JWT_SECRET=process.env.JWT_SECRET||'tu_secreto_jwt_aqui';
 exports.protect = async (req, res, next) => {
     try {

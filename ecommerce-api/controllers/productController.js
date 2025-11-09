@@ -3,7 +3,7 @@ const AppError = require('../utils/appError');
 const mongoose = require('mongoose');
 const Category = require('../models/category');
 const Review = require('../models/review');
-const e = require('express');
+const express = require('express');
 exports.createProduct = async (req, res, next) => {
     try {
         const categoryExists = await Category.findById(req.body.category);
