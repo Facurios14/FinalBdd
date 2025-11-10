@@ -15,10 +15,12 @@
         "mongoose"
     ],
     "dependencies": {
+        "bcrypt": "^6.0.0",
         "bcryptjs": "^2.4.3",
         "dotenv": "^16.6.1",
         "express": "^4.21.2",
         "jsonwebtoken": "^9.0.2",
+        "mongod": "^2.0.0",
         "mongoose": "^8.19.3"
     },
     "devDependencies": {

@@ -13,7 +13,7 @@ services:
     environment:
       # Variable de entorno para que Node sepa dónde encontrar la base de datos
       NODE_ENV: development
-      MONGO_URI: mongodb://mongo:27017/ecommerce_db # Usa 'mongo' como hostname (nombre del servicio)
+      MONGO_URI: mongodb://mongo:27017/Eccomerce # Usa 'mongo' como hostname (nombre del servicio)
     depends_on:
       - mongo # Asegura que el servicio 'mongo' se inicie primero
 
